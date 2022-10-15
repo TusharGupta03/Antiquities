@@ -14,58 +14,7 @@
 </head>
 
 <body>
-    <?php
-
-    // $uid=$_GET['uid'];
-
-    // if (isset($uid)) {
-    //     // session isn't started
-    //     echo "session not start";
-    // } else {
-    //     echo "session start";
-    // }
-    ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <header class="nav">
+  <header class="nav">
         <!-- <div class="logodiv" >
            
         </div> -->
@@ -157,11 +106,13 @@
 
         </div>
 
+
+
         <div class=" filters">
-            <a href="#"><img class="card" src="retro.png" alt=""></a>
-            <a href="#"><img class="card" src="abstract.png" alt=""></a>
-            <a href="#"><img class="card" src="classic.png" alt=""></a>
-            <a href="#"><img class="card" src="illustration.png" alt=""></a>
+            <a href="de1.php?uid=retro "><img class="card" src="retro.png" name="retro"  alt=""></a>
+            <a href="de1.php?uid=abstract"><img class="card" src="abstract.png" name="abstract" alt=""></a>
+            <a href="de1.php?uid=classic"><img class="card" src="classic.png" name="classic" alt=""></a>
+            <a href="de1.php?uid=illustration"><img class="card" src="illustration.png" name="illustration" alt=""></a>
         </div>
     </div>
 
