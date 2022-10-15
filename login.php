@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
@@ -6,15 +10,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start();
     $username = $_POST['username'];
     $password = $_POST['pwd'];
+    $_SESSION['loggedin']='log';
 
     $link = mysqli_connect('localhost', 'root', '', 'art_gallery') or die('Unable to connect the server. ');
     $query = "select username ,password from newcustomer where username='$username' and password='$password' ";
     $result = mysqli_query($link, $query);
     if ($result1 = mysqli_fetch_assoc($result)) {
         $_SESSION['username'] = $result1['username'];
-        header('location:landingpage.php');
+        header('location:home_1.php?uid=' . $result1['username'] . '');
+        exit();
     }
+    session_unset();
 }
+
 
 
 ?>
