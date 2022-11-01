@@ -133,6 +133,15 @@ $res = mysqli_query($link, $sql);
         /* height: 20vh; */
         border-radius: 8px;
     }
+
+    .ab {
+        float: left;
+        /* display: flex; */
+        /* justify-content: space-around; */
+        height:400px;
+
+
+    }
 </style>
 
 
@@ -142,18 +151,23 @@ $res = mysqli_query($link, $sql);
 
             <ul>
                 <li><img class="logo" src="logo.png" alt=""></li>
-                <li><a href="">Home</a></li>
+                <li><a href="home_1.php">Home</a></li>
                 <!-- <li><a href="">Explore</a></li> -->
                 <li><a href="">Account</a></li>
                 <!-- <li><a href="">Settings</a></li> -->
                 <!-- <li><a href="">Saved</a></li> -->
-                <li><a href="">About Us</a></li>
+                <!-- <li><a href="">About Us</a></li> -->
             </ul>
         </div>
 
         <div class="bar">
             <h1 class="text1">
-                Artworks
+
+            Art Works
+               (<?php
+                    echo $cat;
+                ?>)
+                
             </h1>
 
             <div class="space"></div>
@@ -173,15 +187,27 @@ $res = mysqli_query($link, $sql);
             <a href="#"><img class="card" src="illustration.png" alt=""></a> -->
 
             <?php if ($res->num_rows > 0) { ?>
-                
+
                 <div>
                     <?php while ($row = $res->fetch_assoc()) {
-                        $id_ = $row['username'];
-                        $link = "image2.php?id=$id_";
+                        $title = $row['title'];
+                        $name = $row['username'];
+                        $price = $row['price'];
+                        $title = $row['title'];
+
+                        $link = "image2.php?uid=$title&id=$name";
 
                     ?>
-                        <a  href="<?= $link ?>"> <img class="card" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /></a>
+                        <div class="ab">
+                            <a href="<?= $link ?>"> <img class="card" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /></a>
+                            <center>
+                                <p class="card">Price : <?php echo $price ?>Rs Only</p>
+                            </center>
+                            <center>
+                                <p class="card">Title : <?php echo $title ?>Rs Only</p>
+                            </center>
 
+                        </div>
 
                     <?php } ?>
                 </div>

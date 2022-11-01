@@ -26,6 +26,17 @@ select {
 
 }
 
+.abc{
+    width: 1000%;
+    padding: 8px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #C565CC;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-size: 12px
+}
+
 .logo {
     padding-left: 20%;
     position: absolute;

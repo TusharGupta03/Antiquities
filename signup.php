@@ -51,7 +51,7 @@
 
 
 
-                        $insert = "INSERT INTO  newcustomer (name,dob,gender,email,username,password) VALUES
+                        $insert = "INSERT INTO  newcustomer (name,dob,mobile_no,email,username,password) VALUES
 ('$name','$dob','$gender','$email','$username','$password')";
 
                         $results = mysqli_query($link, $insert) or die(mysqli_error($link));
@@ -92,14 +92,16 @@
                         <label for="dob">Date of birth</label>
                         <input type="date" class="dob" name="dob"> <br>
 
-                        <label for="gender"> Gender</label>
-                        <select class="gen" name="gender">
+                        <label for="gender"> Mobile Number</label>
+                        <br>
+                        <!-- <select class="gen" name="gender">
                             <option class="opt" value="male">Male</option>
                             <option class="opt" value="female">Female</option>
                             <option class="opt" value="other">Other</option>
                             <option class="opt" value="other" hidden selected>Select Gender</option>
 
-                        </select>
+                        </select> -->
+                        <input type="text" class="abc" name="gender">
 
                     </div>
 

@@ -1,12 +1,6 @@
 <?php
 
-
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-
     session_start();
     $username = $_POST['username'];
     $password = $_POST['pwd'];
@@ -20,6 +14,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('location:home_1.php?uid=' . $result1['username'] . '');
         exit();
     }
+
+    $link = mysqli_connect('localhost', 'root', '', 'art_gallery') or die('Unable to connect the server. ');
+    $query = "select admin_id ,admin_password from admin where admin_id='$username' and admin_password='$password' ";
+    $result = mysqli_query($link, $query);
+    if ($result1 = mysqli_fetch_assoc($result)) {
+        $_SESSION['username'] = $result1['username'];
+        header('location:admin.php?uid=' . $result1['username'] . '');
+        exit();
+    }
+
+
     session_unset();
 }
 

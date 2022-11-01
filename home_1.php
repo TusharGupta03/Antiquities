@@ -16,25 +16,25 @@
 <body>
   <header class="nav">
         <!-- <div class="logodiv" >
-           
+
         </div> -->
 
         <div class="options">
 
             <ul>
                 <li><img class="logo" src="logo.png" alt=""></li>
-                <li><a href="">Home</a></li>
+                <li><a href="home_1.php">Home</a></li>
                 <!-- <li><a href="">Explore</a></li> -->
                 <li><a href="account.php">Account</a></li>
                 <!-- <li><a href="">Settings</a></li> -->
                 <!-- <li><a href="">Saved</a></li> -->
-                <li><a href="">About Us</a></li>
+                <li><a href="#about">About Us</a></li>
             </ul>
         </div>
 
         <div class="space"></div>
 
-        <form class="searchform" action="/action_page.php">
+        <form class="searchform" action="search.php" method="POST">
             <input type="text" class="search" placeholder="Search" name="search">
         </form>
 
@@ -81,10 +81,24 @@
     <div class="main">
         <div class="head">
             <img class="logo1" src="logo1.png" alt="">
-            <div>An online platform to sell your <br> creativity and buy creative arts.</div>
-            <div class="buttondiv">
-                <button class="button">Explore</button>
-            </div>
+            <div >An online platform to sell your <br> creativity and buy creative arts.</div>
+            <?php
+            if (isset($_SESSION['loggedin'])) {
+            ?>
+
+                <div class="buttondiv">
+                   <a href="im.php"><button class="button">Sell</button></a>
+                </div>
+            <?php
+            } else { ?>
+
+                <div class="buttondiv">
+                    <button class="button">Explore</button>
+                </div>
+
+            <?php }
+
+            ?>
         </div>
         <div>
             <img class="banner" src="banner.png" alt="">
@@ -120,7 +134,7 @@
 
         <div class="aboutdes">
             <h1>About Us</h1>
-            <div class="des">
+            <div class="des" id="about">
                 Of all the machine-made items in our home, it's nice to have something <br> that can effortlessly bring a space
                 to life. <br> <br> Having art in your home benefits your interior design, well-being and social atmosphere. <br>
 
